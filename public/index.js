@@ -28,12 +28,15 @@ firebase.firestore().collection('Data').get()
 
       let td1 = document.createElement('td');
        let td2 = document.createElement('td');
+       let td3 = document.createElement('td');
 
         td1.appendChild(document.createTextNode(data.Name));
         td2.appendChild(document.createTextNode(data.LastSync));
+        td3.appendChild(document.createTextNode(doc.id));
 
             tr.appendChild(td1);
             tr.appendChild(td2);
+            tr.appendChild(td3);
             frag.appendChild(tr);
             view.appendChild(frag);
 
