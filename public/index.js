@@ -1,21 +1,21 @@
 
 function onSubmit(){
-    docName=document.getElementById("dName").value;
+    x=document.getElementById("dName").value;
    var currentTime = new Date().toLocaleTimeString();
    var currentDate = new Date().toLocaleDateString();
    
-   firebase.firestore().collection('Data').doc(docName).set({
+   firebase.firestore().collection('Data').doc(x).set({
        Name:document.getElementById("name").value ,
        LastSync : currentDate +"____" +currentTime,
    })
 document.getElementById("details").reset();
-location.reload();
 
 }
 document.addEventListener("DOMContentLoaded", event =>{      
    
     const app = firebase.app();
 
+ 
 firebase.firestore().collection('Data').get()
  .then(users=>{
      users.forEach(doc=>{
