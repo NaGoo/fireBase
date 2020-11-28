@@ -30,23 +30,12 @@
       margin-left: 100px;
       font-weight: bold;
     }
-    th{
-      font-size: 18px;
-       text-align: center; 
-       color: black; 
-       background-color: rgb(250, 250, 36);
-    }
-    td{
-      font-size: 14px;
-       text-align: center; 
-       color: black;
-    }
-    table{
-      border: black;
-      border-width: 2px;
-    }
+   
   </style>
   <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <h3 style="color: white;">Firebase Connection :-)</h3>
+    </nav>
     <form class="view" id="details" >
       <div class="form-group">
         <label >DocumentName</label>
@@ -61,14 +50,18 @@
     </form><br><br>
     <script src="index.js">
     </script>
-    <table class="view" id="view">
-      <tr>
+<table class="table" id ="view">
+  <thead class="thead-dark">      <tr>
       <th>Name</th>
       <th>Status</th>
+      <th>Storage</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <td></td>
     </tr>
+  </tbody>
     </table>
    
   </body>
