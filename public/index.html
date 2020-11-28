@@ -30,6 +30,21 @@
       margin-left: 100px;
       font-weight: bold;
     }
+    th{
+      font-size: 18px;
+       text-align: center; 
+       color: black; 
+       background-color: rgb(250, 250, 36);
+    }
+    td{
+      font-size: 14px;
+       text-align: center; 
+       color: black;
+    }
+    table{
+      border: black;
+      border-width: 2px;
+    }
   </style>
   <body>
     <form class="view" id="details" >
@@ -43,9 +58,18 @@
       </div>
       <button type="button" class="btn btn-secondary" onclick="onSubmit()" >Submit</button>
       <!-- <button type="button" class="btn btn-dark" onclick="googleLogin();">Store</button> -->
-    </form>
+    </form><br><br>
     <script src="index.js">
     </script>
+    <table class="view" id="view">
+      <tr>
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    </table>
    
   </body>
 </html>
