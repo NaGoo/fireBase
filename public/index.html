@@ -27,8 +27,9 @@
       max-width: 300px;
     }
     .view{
-      margin-left: 100px;
+      margin-left: 500px;
       font-weight: bold;
+      margin-top: 10px;
     }
    
   </style>
@@ -36,6 +37,7 @@
     <nav class="navbar navbar-dark bg-dark">
       <h3 style="color: white;">Firebase Connection :-)</h3>
     </nav>
+    
     <form class="view" id="details" >
       <div class="form-group">
         <label >DocumentName</label>
@@ -47,6 +49,7 @@
       </div>
       <button type="button" class="btn btn-secondary" onclick="onSubmit()" >Submit</button>
       <!-- <button type="button" class="btn btn-dark" onclick="googleLogin();">Store</button> -->
+      
     </form><br><br>
     <script src="index.js">
     </script>
@@ -56,6 +59,7 @@
       <th>Status</th>
       <th>Doc.Name</th>
       <th>Remove</th>
+      <th>Update</th>
     </tr>
   </thead>
   <tbody>

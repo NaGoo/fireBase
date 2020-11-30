@@ -26,20 +26,26 @@ firebase.firestore().collection('Data').get()
       let td1 = document.createElement('td');
        let td2 = document.createElement('td');
        let td3 = document.createElement('td');
-       let td4 = document.createElement('button');
-       td4.innerHTML = '<i type="button" class="btn btn-danger" >Delete</i>';
+       let btn1 = document.createElement('td');
+       btn1.innerHTML = '<i type="button" class="btn btn-danger" >Delete</i>';
+
+       let btn2 = document.createElement('td');
+       btn2.innerHTML = '<i type="button" class="btn btn-primary" >Edit</i>';
+
 
         td1.appendChild(document.createTextNode(data.Name));
         td2.appendChild(document.createTextNode(data.LastSync));
         td3.appendChild(document.createTextNode(doc.id));
+
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
-            tr.appendChild(td4);
+            tr.appendChild(btn1);
+            tr.appendChild(btn2);
             frag.appendChild(tr);
             view.appendChild(frag);
 
-            td4.addEventListener ("click", function() {
+            btn1.addEventListener ("click", function() {
 
                 firebase.firestore().collection("Data").doc(doc.id).delete().then(function() {
                     alert("Document successfully deleted!");
