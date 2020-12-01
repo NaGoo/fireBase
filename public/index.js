@@ -1,8 +1,24 @@
-function ExportToExcel(view){
-    var htmltable= document.getElementById('view');
-    var html = htmltable.outerHTML;
-    window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
- }
+
+function fnExcelReport()
+{
+    var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+    var j=0;
+    tab = document.getElementById('view'); 
+
+    for(j = 0 ; j < tab.rows.length ; j++) 
+    {     
+        tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+    }
+
+    tab_text=tab_text+"</table>";
+        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+}
+// function ExportToExcel(view){
+//     var htmltable= document.getElementById('view');
+//     var html = htmltable.outerHTML;
+//     window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+//  }
 function onSubmit(){
     x=document.getElementById("dName").value;
    var currentTime = new Date().toLocaleTimeString();
