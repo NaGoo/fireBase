@@ -15,32 +15,27 @@ function fnExcelReport()
 }
   
 function onSubmit(){
+
     x=document.getElementById("dName").value;
    var currentTime = new Date().toLocaleTimeString();
    //var currentDate = new Date().toLocaleDateString();
    //document.getElementById("timeIn").value=currentTime;
    firebase.firestore().collection('Data').doc(x).set({
+
        Name:document.getElementById("name").value ,
        LastSync :currentTime,
        TimeIn :document.getElementById("timeIn").value ,
-
        TimeOut:document.getElementById("timeOut").value ,
-
    })
 document.getElementById("details").reset();
 //location.reload();
-
-
 }      
-
 document.addEventListener("DOMContentLoaded", event =>{      
    
     const app = firebase.app();
     document.getElementById("timeIn").disabled = true;
     document.getElementById("timeOut").disabled = true;
 
-
- 
 firebase.firestore().collection('Data').get()
  .then(users=>{
      users.forEach(doc=>{
@@ -81,10 +76,10 @@ firebase.firestore().collection('Data').get()
                  var docs = doc.id;
                  var newtimein= data.TimeIn;
                  var newtimeout= data.TimeOut;
-                 document.getElementById("name").value = rename;
-                 document.getElementById("dName").value = docs;
-                 document.getElementById("timeIn").value = newtimein;
-                 document.getElementById("timeOut").value = newtimeout;
+                    document.getElementById("name").value = rename;
+                    document.getElementById("dName").value = docs;
+                    document.getElementById("timeIn").value = newtimein;
+                    document.getElementById("timeOut").value = newtimeout;
 
               // onSubmit();
             });
