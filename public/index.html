@@ -55,8 +55,13 @@
       <div class="col-sm-3">
       <div class="form-group">
         <label >TimeIn</label>
-        <input id="timeIn" type="text" autocomplete="off" class="form-control" placeholder="automatically check">
+        <input id="timeIn" type="text" autocomplete="off" class="form-control" placeholder=" click timeIn ">
+       
       </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+      <button id="in" style="margin-top:30px" type="button" class="btn btn-dark" onclick="setTime()" >TimeIn</button></div>
     </div>
     </div>
 
@@ -66,6 +71,7 @@
         <label >Name</label>
         <input id="name" type="text" autocomplete="off" class="form-control" placeholder="Enter your name"><br>
       </div>
+      
     </div>
       <div class="col-sm-3">
         <div class="form-group">
@@ -74,14 +80,15 @@
         </div>
         
     </div>
+    
     </div>
       <!-- <button type="button" class=" form-control btn btn-secondary" onclick="onSubmit()" >Login</button></div> -->
 
       <div class="row">
         <div class="col-sm-3">
-      <button type="button" class="form-control btn btn-secondary" onclick="onSubmit()" >Submit</button></div>
+      <button type="button" class="form-control btn btn-dark" onclick="onSubmit()" >Submit</button></div>
       <div class="col-sm-3">
-      <button  type="button"  class="form-control btn btn-success" onclick="fnExcelReport()" >Export-Excel</button></div>
+      <button  type="button"  class="form-control btn btn-secondary" onclick="fnExcelReport()" >Export-Excel</button></div>
       <!-- <button type="button" class="btn btn-dark" onclick="googleLogin();">Store</button> -->
     </div>
       
@@ -96,10 +103,10 @@
       <th>User</th>
       <th>Doc.Name</th>
       <th>TimeIn</th>
-      <th>LogOut</th>
       <th>TimeOut</th>
       <th>Update</th>
       <th>Remove</th>
+      <th>LogOut</th>
     </tr>
   </thead>
   <tbody>

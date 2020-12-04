@@ -1,3 +1,8 @@
+function setTime(){
+    var settimein = new Date().toLocaleTimeString();
+    document.getElementById("timeIn").value=settimein;
+
+}
 
 function fnExcelReport()
 {
@@ -17,14 +22,14 @@ function fnExcelReport()
 function onSubmit(){
 
     x=document.getElementById("dName").value;
-   var currentTime = new Date().toLocaleTimeString();
+  var currentTime = new Date().toLocaleTimeString();
    //var currentDate = new Date().toLocaleDateString();
    //document.getElementById("timeIn").value=currentTime;
    firebase.firestore().collection('Data').doc(x).set({
 
        Name:document.getElementById("name").value ,
        LastSync :currentTime,
-       TimeIn :document.getElementById("timeIn").value ,
+       TimeIns :document.getElementById("timeIn").value ,
        TimeOut:document.getElementById("timeOut").value ,
    })
 document.getElementById("details").reset();
@@ -33,8 +38,8 @@ document.getElementById("details").reset();
 document.addEventListener("DOMContentLoaded", event =>{      
    
     const app = firebase.app();
-    document.getElementById("timeIn").disabled = true;
-    document.getElementById("timeOut").disabled = true;
+   // document.getElementById("timeIn").disabled = true;
+   // document.getElementById("timeOut").disabled = true;
 
 firebase.firestore().collection('Data').get()
  .then(users=>{
@@ -46,15 +51,17 @@ firebase.firestore().collection('Data').get()
       let user = document.createElement('td'); let documentname = document.createElement('td'); let login = document.createElement('td'); logout = document.createElement('td'); 
       let del = document.createElement('td');  del.innerHTML = '<i type="button" class="btn btn-danger" >Delete</i>'; 
       let edits = document.createElement('td');  edits.innerHTML = '<i type="button" class="btn btn-primary" >update</i>';
-      let log = document.createElement('td');  log.innerHTML = '<i type="button" class="btn btn-success" >LogOut</i>';
+      let log = document.createElement('td');  log.innerHTML = '<i type="button" class="btn btn-dark" >LogOut</i>';
 
-       user.appendChild(document.createTextNode(data.Name)); login.appendChild(document.createTextNode(data.TimeIn));
+       user.appendChild(document.createTextNode(data.Name)); login.appendChild(document.createTextNode(data.TimeIns));
         documentname.appendChild(document.createTextNode(doc.id)); logout.appendChild(document.createTextNode(data.TimeOut)); 
  
 
 
-            tr.appendChild(user);tr.appendChild(documentname); tr.appendChild(login); tr.appendChild(log); tr.appendChild(logout); 
-            tr.appendChild(edits);  tr.appendChild(del); frag.appendChild(tr); view.appendChild(frag);
+            tr.appendChild(user);tr.appendChild(documentname); tr.appendChild(login);tr.appendChild(logout);  
+            tr.appendChild(edits);  tr.appendChild(del); tr.appendChild(log); frag.appendChild(tr); view.appendChild(frag);
+
+           // console.log(data.TimeOut - data.TimeIn)
 
             log.addEventListener("click",function (){
                 var tim = new Date().toLocaleTimeString();
@@ -62,24 +69,34 @@ firebase.firestore().collection('Data').get()
                 document.getElementById("timeOut").value=tim ;    //+"----"+dat;
                 var rename =data.Name;
                  var docs = doc.id;
-                 var newtime= data.LastSync;
-                 //console.log(newtime)
+                var sets= data.TimeIns;
+                 //console.log(data.TimeIns)
                  document.getElementById("name").value = rename;
                  document.getElementById("dName").value = docs;
-                 document.getElementById("timeIn").value = newtime;
+                 document.getElementById("timeIn").value = sets;
                 // onSubmit();
+                document.getElementById("dName").disabled = true;
+                    document.getElementById("timeIn").disabled = true;
+                    document.getElementById("timeOut").disabled = true;
+                    document.getElementById("in").disabled = true;
+                    document.getElementById("name").disabled = true;
+
             })
 
              edits.addEventListener("click",function(){
-                 alert("you should change only")
+                 alert("you should change name only")
                  var rename = "";
                  var docs = doc.id;
-                 var newtimein= data.TimeIn;
+                 var newtimein= data.TimeIns;
                  var newtimeout= data.TimeOut;
                     document.getElementById("name").value = rename;
                     document.getElementById("dName").value = docs;
                     document.getElementById("timeIn").value = newtimein;
                     document.getElementById("timeOut").value = newtimeout;
+                    document.getElementById("dName").disabled = true;
+                    document.getElementById("timeIn").disabled = true;
+                    document.getElementById("timeOut").disabled = true;
+                    document.getElementById("in").disabled = true;
 
               // onSubmit();
             });
