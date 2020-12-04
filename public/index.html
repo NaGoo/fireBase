@@ -24,50 +24,92 @@
   </head>
   <style>
     .form-control{
-      max-width: 300px;
+      max-width: 250px;
     }
     .view{
       margin-left: 300px;
       font-weight: bold;
       margin-top: 10px;
     }
+    body{
+      margin: 15px 15px 15px 15px;
+    }
+   
    
   </style>
   <body>
     <nav class="navbar navbar-dark bg-dark">
       <h3 style="color: white;">Firebase Connection :-)</h3>
     </nav>
-    
+    <!-- <div class="row">
+      <div class="col-sm-4"> -->
     <form class="view" id="details" >
+      <div class="row">
+        <div class="col-sm-3">
       <div class="form-group">
         <label >DocumentName</label>
         <input id="dName" type="text"  class="form-control" placeholder="Enter name">
+      </div></div>
+
+
+      <div class="col-sm-3">
+      <div class="form-group">
+        <label >TimeIn</label>
+        <input id="timeIn" type="text" autocomplete="off" class="form-control" placeholder="automatically check">
       </div>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
       <div class="form-group">
         <label >Name</label>
-        <input id="name" type="text" autocomplete="off" class="form-control" placeholder="Enter your name">
+        <input id="name" type="text" autocomplete="off" class="form-control" placeholder="Enter your name"><br>
       </div>
-      <button type="button" class="btn btn-secondary" onclick="onSubmit()" >Submit</button>
+    </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label >TimeOut</label>
+          <input id="timeOut" type="text" autocomplete="off" class="form-control" placeholder="automatically check">
+        </div>
+        
+    </div>
+    </div>
+      <!-- <button type="button" class=" form-control btn btn-secondary" onclick="onSubmit()" >Login</button></div> -->
+
+      <div class="row">
+        <div class="col-sm-3">
+      <button type="button" class="form-control btn btn-secondary" onclick="onSubmit()" >Submit</button></div>
+      <div class="col-sm-3">
+      <button  type="button"  class="form-control btn btn-success" onclick="fnExcelReport()" >Export-Excel</button></div>
       <!-- <button type="button" class="btn btn-dark" onclick="googleLogin();">Store</button> -->
+    </div>
       
-    </form><br><br>
+    </form><br>
+    <!-- </div> -->
+    
     <script src="index.js">
     </script>
-<table class="table" id ="view">
+<!-- <div class="col-sm-8"> -->
+ <table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" id ="view">
   <thead class="thead-dark">      <tr>
-      <th>Name</th>
-      <th>Status</th>
+      <th>User</th>
       <th>Doc.Name</th>
-      <th>Remove</th>
+      <th>TimeIn</th>
+      <th>LogOut</th>
+      <th>TimeOut</th>
       <th>Update</th>
+      <th>Remove</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td></td>
+      <td ></td>
     </tr>
   </tbody>
     </table>
-    <button style="margin-left: 650px;" type="button" class="btn btn-success" onclick="fnExcelReport()" >Export</button>
+    <!-- </div>
+   
+    </div> -->
   </body>
 </html>
